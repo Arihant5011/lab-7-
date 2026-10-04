@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ledger — Arithmetic Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="machine">
+
+    <header class="machine__head">
+      <p class="eyebrow">No. 04 — Arithmetic</p>
+      <h1>Ledger</h1>
+    </header>
+
+    <!-- LCD-style result display -->
+    <div class="display" aria-live="polite">
+      <div class="display__expression" id="expression">0</div>
+      <div class="display__result" id="result">0</div>
+    </div>
+
+    <form id="calc-form" class="pad" novalidate>
+
+      <div class="field">
+        <label for="num1">First number</label>
+        <input type="number" id="num1" name="num1" step="any" placeholder="0" required>
+      </div>
+
+      <fieldset class="ops">
+        <legend>Operation</legend>
+
+        <input type="radio" id="op-add" name="operation" value="add" checked>
+        <label for="op-add" class="op-key">+</label>
+
+        <input type="radio" id="op-sub" name="operation" value="subtract">
+        <label for="op-sub" class="op-key">&minus;</label>
+
+        <input type="radio" id="op-mul" name="operation" value="multiply">
+        <label for="op-mul" class="op-key">&times;</label>
+
+        <input type="radio" id="op-div" name="operation" value="divide">
+        <label for="op-div" class="op-key">&divide;</label>
+      </fieldset>
+
+      <div class="field">
+        <label for="num2">Second number</label>
+        <input type="number" id="num2" name="num2" step="any" placeholder="0" required>
+      </div>
+
+      <p class="error" id="error" role="alert"></p>
+
+      <div class="actions">
+        <button type="submit" class="btn btn--primary">Calculate</button>
+        <button type="button" class="btn" id="clear-btn">Clear</button>
+      </div>
+
+    </form>
+
+    <section class="tape-wrap">
+      <div class="tape-wrap__head">
+        <h2>Tape</h2>
+        <button type="button" class="btn btn--ghost" id="tape-clear">Clear tape</button>
+      </div>
+      <ol class="tape" id="tape" reversed></ol>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
